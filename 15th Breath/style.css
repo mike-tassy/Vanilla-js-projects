@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Questrial&display=swap');
+
+* {
+ box-sizing: border-box;
+}
+
+body {
+    background: #224941 url('./img/Aura\ background.jpeg') no-repeat center center/ cover;
+    min-height: 100vh;
+    overflow: hidden;
+    align-items: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    font-family: 'montserrat', sans-serif;
+    margin: 0;
+}
+
+ .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    height: 300px;
+    width: 300px;
+    position: relative;
+    transform: scale(1);
+ }
+
+ .circle {
+    background-color: #010f1c;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    animation: breathingCycle 7.5s infinite;
+ }
+
+ .gradient-circle {
+    background: conic-gradient(
+    #f06292 0%,        /* pink */
+    #f48fb1 20%,       /* light pink */
+    #ffb74d 35%,       /* orange */
+    #ba68c8 50%,       /* purple */
+    #7986cb 65%,       /* indigo/blue */
+    #4db6ac 80%,       /* teal */
+    #f06292 100%       /* back to pink for full circle */
+  );
+    /* gotten from chat gbt 😅 */
+    height: 320px;
+    width: 320px;
+    z-index: -2; 
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+ }
+
+ .pointer {
+    background-color: #fff;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    display: block;
+    /* spans are inline by default */
+}
+
+.pointer-container {
+    position: absolute;
+    top: -40px;
+    left: 140px;
+    width: 20px;
+    height: 190px;
+    animation: rotate 7.5s linear forwards infinite;
+    transform-origin: bottom center;
+}
+
+@keyframes breathingCycle {
+  0% {
+    background-color: #f06292; /* Inhale - Pink */
+  }
+  33% {
+    background-color: #ffb74d; /* Hold - Orange */
+  }
+  66% {
+    background-color: #4db6ac; /* Exhale - Teal */
+  }
+  100% {
+    background-color: #f06292; /* Loop back to Inhale */
+  }
+}
+
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.container.grow {
+    animation: grow 3s linear forwards;
+}
+
+@keyframes grow {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.2);
+    }
+}
+
+.container.shrink {
+    animation: shrink 3s linear forwards;
+}
+
+@keyframes shrink {
+    from {
+        transform: scale(1.2);
+    }
+
+    to {
+        transform: scale(1.0);
+    }
+}

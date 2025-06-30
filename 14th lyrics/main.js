@@ -119,3 +119,6 @@ result.addEventListener("click", (e) => {
     getLyrics(artist, songTitle);
   }
 });
+
+
+// search lyric does not work , i'm sorry

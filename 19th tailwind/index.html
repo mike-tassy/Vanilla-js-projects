@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Product Display</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+  <body class="bg-gray-800 text-white">
+    <nav class="bg-gray-900 p-4 mb-6">
+      <div
+        class="container max-w-6xl mx-auto flex flex-col sm: flex-row gap-8 items-center"
+      >
+        <!-- Search Icon SVG (inside the div) -->
+        <div class="relative w-full">
+          <input
+            type="text"
+            id="search"
+            class="bg-gray-700 rounded-full p-2 pl-10 transition focus:w-full"
+            placeholder="Search For Products...."
+          />
+          <svg
+            class="absolute left-2 top-1/2 -translate-y-1/2"
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            stroke-width="2"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 21l-4.35-4.35M16.65 16.65A7.5 7.5 0 1016.65 2a7.5 7.5 0 000 15z"
+            />
+          </svg>
+        </div>
+
+        <!-- cart button -->
+        <button class="relative" id="cartButton">
+          <i class="fas fa-shopping-cart text-2xl text-blue-600"></i>
+          <small
+            id="cartCount"
+            class="bg-red-500 text-xs text-white w-4 h-4 absolute -top-2 -right-2 rounded-full"
+            >0</small
+          >
+        </button>
+      </div>
+    </nav>
+
+    <main class="flex flex-col ms:flex-row container mx-auto max-w-6xl">
+      <div class="space-y-4 p-2 w-full md:max-w-[10rem]">
+        <h2 class="text-2xl">Filters</h2>
+        <h3 class="text-xl mb-2">Category</h3>
+        <div id="filters-container" class="text-xl space-y-2">
+          <div>
+            <input type="checkbox" class="check" id="cameras" />
+            <label for="cameras">Cameras</label>
+          </div>
+          <div>
+            <input type="checkbox" class="check" id="smartphones" />
+            <label for="smartphones">SmartPhones</label>
+          </div>
+          <div>
+            <input type="checkbox" class="check" id="games" />
+            <label for="games">Games</label>
+          </div>
+          <div>
+            <input type="checkbox" class="check" id="televisions" />
+            <label for="television">Television</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Products wrappers -->
+      <div
+        id="product-wrapper"
+        class="w-full max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-6 place-content-center p-4"
+      >
+        <!-- <div class="item space-y-2">
+          <div
+            class="bg-gray-100 flex justify-center relative overflow-hidden group cusor-pointer border"
+          >
+            <img
+              src="/img/playstation_5.png"
+              class="w-full h-full object-cover"
+              alt="playstation"
+            />
+            <span
+              class="status bg-black text-white absolute bottom-0 left-0 right-0 text-center py-2 translate-y-full transition duration-300 group-hover:translate-y-0"
+              >Add to Cart</span
+            >
+          </div>
+          <p class="text-xl">Playstation 5</p>
+          <strong>$399</strong>
+        </div>
+
+        <div class="item space-y-2">
+          <div
+            class="bg-gray-100 flex justify-center relative overflow-hidden group cusor-pointer border"
+          >
+            <img
+              src="/img/cannon_eos_camera.png"
+              class="w-full h-full object-cover"
+              alt="playstation"
+            />
+            <span
+              class="status bg-black text-white absolute bottom-0 left-0 right-0 text-center py-2 translate-y-full transition duration-300 group-hover:translate-y-0"
+              >Add to Cart</span
+            >
+          </div>
+          <p class="text-xl">Cannon Camera</p>
+          <strong>$199</strong>
+        </div>
+
+        <div class="item space-y-2">
+          <div
+            class="bg-gray-100 flex justify-center relative overflow-hidden group cusor-pointer border"
+          >
+            <img
+              src="/img/google_pixel.png"
+              class="w-full h-full object-cover"
+              alt="playstation"
+            />
+            <span
+              class="status bg-black text-white absolute bottom-0 left-0 right-0 text-center py-2 translate-y-full transition duration-300 group-hover:translate-y-0"
+              >Add to Cart</span
+            >
+          </div>
+          <p class="text-xl">Google pixel</p>
+          <strong>$599</strong>
+        </div>
+
+        <div class="item space-y-2">
+          <div
+            class="bg-gray-100 flex justify-center relative overflow-hidden group cusor-pointer border"
+          >
+            <img
+              src="/img/iphone_14.png"
+              class="w-full h-full object-cover"
+              alt="playstation"
+            />
+            <span
+              class="status bg-black text-white absolute bottom-0 left-0 right-0 text-center py-2 translate-y-full transition duration-300 group-hover:translate-y-0"
+              >Add to Cart</span
+            >
+          </div>
+          <p class="text-xl">Iphone 14</p>
+          <strong>$999</strong>
+        </div>
+        <div class="item space-y-2">
+          <div
+            class="bg-gray-100 flex justify-center relative overflow-hidden group cusor-pointer border"
+          >
+            <img
+              src="/img/lg_tv.png"
+              class="w-full h-full object-cover"
+              alt="playstation"
+            />
+            <span
+              class="status bg-black text-white absolute bottom-0 left-0 right-0 text-center py-2 translate-y-full transition duration-300 group-hover:translate-y-0"
+              >Add to Cart</span
+            >
+          </div>
+          <p class="text-xl">Lg Television</p>
+          <strong>$1399</strong>
+        </div>
+
+        <div class="item space-y-2">
+          <div
+            class="bg-gray-100 flex justify-center relative overflow-hidden group cusor-pointer border"
+          >
+            <img
+              src="/img/nintendo_switch.png"
+              class="w-full h-full object-cover"
+              alt="playstation"
+            />
+            <span
+              class="status bg-black text-white absolute bottom-0 left-0 right-0 text-center py-2 translate-y-full transition duration-300 group-hover:translate-y-0"
+              >Add to Cart</span
+            >
+          </div>
+          <p class="text-xl">Nintendo Switch</p>
+          <strong>$699</strong>
+        </div>
+
+        <div class="item space-y-2">
+          <div
+            class="bg-gray-100 flex justify-center relative overflow-hidden group cusor-pointer border"
+          >
+            <img
+              src="/img/samsung_galaxy.png"
+              class="w-full h-full object-cover"
+              alt="playstation"
+            />
+            <span
+              class="status bg-black text-white absolute bottom-0 left-0 right-0 text-center py-2 translate-y-full transition duration-300 group-hover:translate-y-0"
+              >Add to Cart</span
+            >
+          </div>
+          <p class="text-xl">Samsung Galaxy</p>
+          <strong>$1399</strong>
+        </div>
+
+        <div class="item space-y-2">
+          <div
+            class="bg-gray-100 flex justify-center relative overflow-hidden group cusor-pointer border"
+          >
+            <img
+              src="/img/samsung_tv.png"
+              class="w-full h-full object-cover"
+              alt="playstation"
+            />
+            <span
+              class="status bg-black text-white absolute bottom-0 left-0 right-0 text-center py-2 translate-y-full transition duration-300 group-hover:translate-y-0"
+              >Add to Cart</span
+            >
+          </div>
+          <p class="text-xl">Samsung Television</p>
+          <strong>$2399</strong>
+        </div>
+
+        <div class="item space-y-2">
+          <div
+            class="bg-gray-100 flex justify-center relative overflow-hidden group cusor-pointer border"
+          >
+            <img
+              src="/img/sony_a7_camera.png"
+              class="w-full h-full object-cover"
+              alt="playstation"
+            />
+            <span
+              class="status bg-black text-white absolute bottom-0 left-0 right-0 text-center py-2 translate-y-full transition duration-300 group-hover:translate-y-0"
+              >Add to Cart</span
+            >
+          </div>
+          <p class="text-xl">Sony A7 Camera</p>
+          <strong>$899</strong>
+        </div>
+
+        <div class="item space-y-2">
+          <div
+            class="bg-gray-100 flex justify-center relative overflow-hidden group cusor-pointer border"
+          >
+            <img
+              src="/img/sony_zv1f_camera.png"
+              class="w-full h-full object-cover"
+              alt="playstation"
+            />
+            <span
+              class="status bg-black text-white absolute bottom-0 left-0 right-0 text-center py-2 translate-y-full transition duration-300 group-hover:translate-y-0"
+              >Add to Cart</span
+            >
+          </div>
+          <p class="text-xl">Sony z-1f Camera</p>
+          <strong>$3299</strong>
+        </div>
+
+        <div class="item space-y-2">
+          <div
+            class="bg-gray-100 flex justify-center relative overflow-hidden group cusor-pointer border"
+          >
+            <img
+              src="/img/toshiba_tv.png"
+              class="w-full h-full object-cover"
+              alt="playstation"
+            />
+            <span
+              class="status bg-black text-white absolute bottom-0 left-0 right-0 text-center py-2 translate-y-full transition duration-300 group-hover:translate-y-0"
+              >Add to Cart</span
+            >
+          </div>
+          <p class="text-xl">Toshiba Television</p>
+          <strong>$1399</strong>
+        </div>
+        <div class="item space-y-2">
+          <div
+            class="bg-gray-100 flex justify-center relative overflow-hidden group cusor-pointer border"
+          >
+            <img
+              src="/img/xbox_series_x.png"
+              class="w-full h-full object-cover"
+              alt="playstation"
+            />
+            <span
+              class="status bg-black text-white absolute bottom-0 left-0 right-0 text-center py-2 translate-y-full transition duration-300 group-hover:translate-y-0"
+              >Add to Cart</span
+            >
+          </div>
+          <p class="text-xl">X-box Series-X</p>
+          <strong>$1099</strong>
+        </div> -->
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
